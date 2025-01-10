@@ -11,5 +11,7 @@ router.get('/wisata/:name', wisataController.getWisataByName);
 // Read: Mendapatkan semua wisata
 router.get('/wisata', wisataController.getAllWisata);
 
+// Update: Memperbarui data wisata
+router.put('/wisata/:No', wisataController.updateWisata);
 
 module.exports = router;

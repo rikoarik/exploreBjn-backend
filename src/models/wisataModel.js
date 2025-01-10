@@ -8,5 +8,13 @@ module.exports = {
 
   getAllWisata: () => wisataData,
 
+  updateWisata: (No, updatedData) => {
+    const wisataIndex = wisataData.findIndex((wisata) => wisata.No === No);
+    if (wisataIndex !== -1) {
+      wisataData[wisataIndex] = { ...wisataData[wisataIndex], ...updatedData };
+      return wisataData[wisataIndex];
+    }
+  },
+
 };
 

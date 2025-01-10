@@ -52,9 +52,28 @@ const getAllWisata = (req, res) => {
   });
 };
 
+// Update: Memperbarui data wisata
+const updateWisata = (req, res) => {
+  const { No } = req.params;
+  const updatedData = req.body;
+
+  const updatedWisata = wisataModel.updateWisata(Number(No), updatedData);
+
+  if (updatedWisata) {
+    res.status(200).json({
+      message: 'Wisata berhasil diperbarui',
+      data: updatedWisata,
+    });
+  } else {
+    res.status(404).json({
+      message: 'Wisata tidak ditemukan',
+    });
+  }
+};
+
+
 module.exports = {
   createWisata,
   getWisataByName,
   getAllWisata,
-
 };
