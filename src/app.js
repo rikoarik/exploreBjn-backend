@@ -2,12 +2,11 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const authRoutes = require('./routes/authRoutes');
+const wisataRoutes = require('./routes/wisataRoutes');
 const admin = require('firebase-admin');
 const serviceAccount = require('./serviceAccountKey.json');
 
-
 const app = express();
-
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -17,6 +16,7 @@ admin.initializeApp({
 
 app.use(bodyParser.json());
 app.use('/api/auth', authRoutes);
+app.use('/api/wisata', wisataRoutes);
 
 const PORT = process.env.PORT || 3000;
 const db = admin.firestore();
