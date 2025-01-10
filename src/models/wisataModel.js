@@ -4,6 +4,8 @@ module.exports = {
     wisataData.push(wisata);
   },
 
-  
+  findWisataByName: (name) => wisataData.find((wisata) => wisata.Wisata === name),
+
+
 };
 
