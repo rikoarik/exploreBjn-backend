@@ -43,56 +43,8 @@ const getWisataByName = (req, res) => {
   }
 };
 
-// Read: Mendapatkan semua wisata
-const getAllWisata = (req, res) => {
-  const allWisata = wisataModel.getAllWisata();
-  res.status(200).json({
-    message: 'Semua wisata',
-    data: allWisata,
-  });
-};
-
-// Update: Memperbarui data wisata
-const updateWisata = (req, res) => {
-  const { No } = req.params;
-  const updatedData = req.body;
-
-  const updatedWisata = wisataModel.updateWisata(Number(No), updatedData);
-
-  if (updatedWisata) {
-    res.status(200).json({
-      message: 'Wisata berhasil diperbarui',
-      data: updatedWisata,
-    });
-  } else {
-    res.status(404).json({
-      message: 'Wisata tidak ditemukan',
-    });
-  }
-};
-
-// Delete: Menghapus wisata
-const deleteWisata = (req, res) => {
-  const { No } = req.params;
-
-  const deletedWisata = wisataModel.deleteWisata(Number(No));
-
-  if (deletedWisata) {
-    res.status(200).json({
-      message: 'Wisata berhasil dihapus',
-      data: deletedWisata,
-    });
-  } else {
-    res.status(404).json({
-      message: 'Wisata tidak ditemukan',
-    });
-  }
-};
 
 module.exports = {
   createWisata,
   getWisataByName,
-  getAllWisata,
-  updateWisata,
-  deleteWisata,
 };
