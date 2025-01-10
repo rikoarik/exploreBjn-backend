@@ -71,9 +71,28 @@ const updateWisata = (req, res) => {
   }
 };
 
+// Delete: Menghapus wisata
+const deleteWisata = (req, res) => {
+  const { No } = req.params;
+
+  const deletedWisata = wisataModel.deleteWisata(Number(No));
+
+  if (deletedWisata) {
+    res.status(200).json({
+      message: 'Wisata berhasil dihapus',
+      data: deletedWisata,
+    });
+  } else {
+    res.status(404).json({
+      message: 'Wisata tidak ditemukan',
+    });
+  }
+};
 
 module.exports = {
   createWisata,
   getWisataByName,
   getAllWisata,
+  updateWisata,
+  deleteWisata,
 };

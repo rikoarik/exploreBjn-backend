@@ -16,5 +16,11 @@ module.exports = {
     }
   },
 
+  deleteWisata: (No) => {
+    const wisataIndex = wisataData.findIndex((wisata) => wisata.No === No);
+    if (wisataIndex !== -1) {
+      const deletedWisata = wisataData.splice(wisataIndex, 1);
+    }
+  },
 };
 
