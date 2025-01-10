@@ -43,8 +43,18 @@ const getWisataByName = (req, res) => {
   }
 };
 
+// Read: Mendapatkan semua wisata
+const getAllWisata = (req, res) => {
+  const allWisata = wisataModel.getAllWisata();
+  res.status(200).json({
+    message: 'Semua wisata',
+    data: allWisata,
+  });
+};
 
 module.exports = {
   createWisata,
   getWisataByName,
+  getAllWisata,
+
 };

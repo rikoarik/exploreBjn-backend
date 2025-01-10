@@ -6,6 +6,7 @@ module.exports = {
 
   findWisataByName: (name) => wisataData.find((wisata) => wisata.Wisata === name),
 
+  getAllWisata: () => wisataData,
 
 };
 
